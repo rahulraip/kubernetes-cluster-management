@@ -20,7 +20,9 @@ For setting up a Kubernetes cluster on EKS, we will use eksctl, a third-party to
 Download the latest version of 'eksctl' from https://github.com/eksctl-io/eksctl 
 
 After installing eksctl check if it's properly installed and working by checking its version.
-> eksctl version
+
+**`eksctl version`**
+
 <img width="437" height="125" alt="Screenshot 2025-09-04 150744" src="https://github.com/user-attachments/assets/71f4ef87-de7c-4637-b1d3-b1603fcdcb2e" />
 
 Before creating an EKS cluster, we need to configure AWS credentials on your local system. This allows eksctl and the AWS CLI to authenticate with your AWS account and communicate with services such as EKS, EC2, IAM, and VPC.
@@ -29,7 +31,8 @@ AWS CLI Download link: https://docs.aws.amazon.com/cli/latest/userguide/getting-
 
 In AWS Cloud, create an IAM user and generate an Access Key and Secret Access Key, which will be used to configure authentication for the AWS CLI and eksctl.
 Open a terminal or command prompt (for example, Git Bash on Windows or Terminal on Linux/Mac). Run the following command to set up your AWS credentials:
-> aws configure
+
+**`aws configure`**
 
 You will be prompted to enter:
 - AWS Access Key ID
@@ -44,4 +47,36 @@ Download the latest kubectl binary: https://kubernetes.io/docs/tasks/tools/insta
 To run kubectl from anywhere in your terminal, ensure the directory where you placed the binary is included in your system’s PATH environment variable.
 
 ### Creating EKS Cluster
+Creating the ekscluster using a yaml file
+**`eksctl create cluster -f myekscluster.yml`**
+
+<img width="1068" height="648" alt="Screenshot 2025-09-03 162819" src="https://github.com/user-attachments/assets/6f0bee13-2e08-4dee-b6fa-8437b5799c0d" />
+<img width="1920" height="1020" alt="Screenshot 2025-09-03 164439" src="https://github.com/user-attachments/assets/73f51721-f6de-428f-a659-63d0cf1bec80" />
+
+To confirm if the setup is ready, run the below command
+
+`kubectl get pods` <br>
+`kubectl get nodes`
+
+<img width="1919" height="546" alt="Screenshot 2025-09-03 165830" src="https://github.com/user-attachments/assets/a6b208cb-ffd8-47d8-af59-812d0d7c55ba" />
+
+### Creating Deployment
+In Kubernetes, a Deployment is used to manage and update Pods (containers) in a controlled way. 
+It ensures that the desired number of Pod replicas are running and can automatically handle rolling updates and rollbacks.
+
+> kubectl create deployment mywebd --image=vimal13/apache-webserver-php
+
+To check the deployement status:
+> kubectl get deployment
+
+<img width="1917" height="843" alt="Screenshot 2025-09-03 170055" src="https://github.com/user-attachments/assets/dcf5b1e1-df96-4cd7-bf5b-73f7e952b0b7" />
+
+Now the pod is lauched using deployment
+`kubectl get pods`
+
+<img width="1494" height="419" alt="Screenshot 2025-09-03 170155" src="https://github.com/user-attachments/assets/f0f10d20-6a0a-4c46-a677-ef753258179d" />
+
+
+
+
 
