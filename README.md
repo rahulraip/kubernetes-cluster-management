@@ -117,5 +117,29 @@ We can expose a deployment with the kubectl expose command:
 
 - --port 80 → the port exposed to the outside world.
 
+## 🌐Checking Services
+
+After exposing a deployment, you can list the services in your cluster using:
+
+`kubectl get svc`
+
+<img width="1919" height="483" alt="Screenshot 2025-09-03 172017" src="https://github.com/user-attachments/assets/dea7c0b2-8179-45ee-b45b-f17c7d5838df" />
+
+To check detailed information about a specific Service:
+
+`kubectl describe svc mywebd`
+
+<img width="1920" height="1020" alt="Screenshot 2025-09-03 172041" src="https://github.com/user-attachments/assets/a17c0a73-42eb-4129-8527-c4f5eb12d291" />
+
+## 📈 Scaling Pods manually
+
+- Scaling in Kubernetes means adjusting the number of pod replicas running for a deployment. 
+- This helps your application handle more traffic (scale up) or reduce resources when demand is low (scale down).
+
+To scale a deployment manually:
+`kubectl scale deployment mywebd --replicas=5`
+
+<img width="1079" height="396" alt="Screenshot 2025-09-03 171150" src="https://github.com/user-attachments/assets/34b90266-2b15-43bd-a734-ab6aa13e2e08" />
+<img width="1593" height="608" alt="Screenshot 2025-09-03 171211" src="https://github.com/user-attachments/assets/c4b53d22-4e19-4751-b3f8-61e164a98db9" />
 
 
