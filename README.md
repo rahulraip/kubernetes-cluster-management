@@ -1,13 +1,13 @@
-# kubernetes-cluster-management
+# 🚀 kubernetes-cluster-management
 Deployed and managed applications on Kubernetes with auto-scaling and load balancing.
 
-### Tech Stack
+### 🧩 Tech Stack
 - Kubernetes
 - kubectl
 - YAML
 - AWS EKS
 
-### Implementation Steps
+### 📝 Implementation Steps
 
 1. Set up kubernetes Cluster on AWS EKS.
 2. Create deployment and service manifests.
@@ -76,6 +76,40 @@ Now the pod is lauched using deployment
 
 <img width="1494" height="419" alt="Screenshot 2025-09-03 170155" src="https://github.com/user-attachments/assets/f0f10d20-6a0a-4c46-a677-ef753258179d" />
 
+To check the events of a pod, we can use the kubectl describe pod <pod-name> command, which provides detailed information about the pod including status, conditions, and events.
+
+`kubectl describe pods`
+
+<img width="1920" height="1020" alt="Screenshot 2025-09-03 170229" src="https://github.com/user-attachments/assets/9f08a325-417d-4696-afaa-e61895b497a2" />
+
+<img width="1917" height="368" alt="Screenshot 2025-09-03 170405" src="https://github.com/user-attachments/assets/5cdb3ef8-af35-4e6f-a1db-2907bc58d1d9" />
+
+### To check which node a pod is running on, use the kubectl get pod <pod-name> -o wide command.
+
+`kubectl get pods -o wide`
+
+<img width="1919" height="501" alt="Screenshot 2025-09-03 170641" src="https://github.com/user-attachments/assets/849fe2ab-e69d-4d94-bcfd-80d066825c0c" />
+
+## 📊 Checking Pod Metrics
+
+We can check the CPU and memory usage of pods using the kubectl top pod command. This helps monitor resource consumption and troubleshoot performance issues.
+
+`kubectl top pod`
+
+<img width="1330" height="469" alt="Screenshot 2025-09-03 170758" src="https://github.com/user-attachments/assets/82c52ae9-58d7-4621-b4ef-133cde9926db" />
+
+- 1m means 1 milliCPU, i.e., 0.001 of a CPU core is been used.
+- 11Mi means 11 Mebibytes (approx 11 MB) of RAM is been used.
+
+## 📡Exposing the Deployment
+
+- By default, pods in Kubernetes are not accessible from outside the cluster. 
+- To make them reachable, we expose a Deployment using a Service. 
+- A Service provides a stable IP address and DNS name, and can also load-balance traffic across multiple pod replicas.
+
+We can expose a deployment with the kubectl expose command:
+
+`kubectl expose deployment mywebd --type LoadBalancer --port 80`
 
 
 
