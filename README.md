@@ -111,6 +111,11 @@ We can expose a deployment with the kubectl expose command:
 
 `kubectl expose deployment mywebd --type LoadBalancer --port 80`
 
+<img width="1459" height="393" alt="Screenshot 2025-09-03 170931" src="https://github.com/user-attachments/assets/c68331d0-5081-46dd-8ed8-82efd1baf6f9" />
+
+- --type LoadBalancer → makes it accessible externally (in cloud environments like AWS EKS, GKE, AKS). In my case I am using AWS.
+
+- --port 80 → the port exposed to the outside world.
 
 
 
