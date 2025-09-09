@@ -142,7 +142,7 @@ To scale a deployment manually:
 <img width="1079" height="396" alt="Screenshot 2025-09-03 171150" src="https://github.com/user-attachments/assets/34b90266-2b15-43bd-a734-ab6aa13e2e08" />
 <img width="1593" height="608" alt="Screenshot 2025-09-03 171211" src="https://github.com/user-attachments/assets/c4b53d22-4e19-4751-b3f8-61e164a98db9" />
 
-## Auto-Scaling of Pods
+## ↕️ Auto-Scaling of Pods
 
 - By-default, Pods act like they have unlimited resources.
 - They don't scale automatically because Horizontal Pod Autoscaler (HPA) needs requests values.
